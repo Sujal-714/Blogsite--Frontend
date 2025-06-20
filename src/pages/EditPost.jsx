@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../../components/Navbar";
-import apiBase from "../utils/apiBase";
+
 
 function EditPost() {
   const { id } = useParams();
@@ -14,6 +14,7 @@ function EditPost() {
   const [imageFile, setImageFile] = useState(null); // The actual file object if changed
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const apiBase = import.meta.env.VITE_API_URL;
 
   // Load post data
   useEffect(() => {

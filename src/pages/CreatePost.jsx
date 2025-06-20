@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
-import apiBase from "../utils/apiBase";
+
 function CreatePost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [preview, setPreview] = useState(null);
   const navigate = useNavigate();
+  const apiBase = import.meta.env.VITE_API_URL;
 
 const handleImageChange = (e) => {
   const file = e.target.files[0];

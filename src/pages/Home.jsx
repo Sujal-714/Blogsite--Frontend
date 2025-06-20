@@ -1,13 +1,13 @@
 import React,{useState,useEffect} from "react";
 import Navbar from "../../components/Navbar";
-import apiBase from "../utils/apiBase";
+
 import PostGrid from "../../components/PostGrid";
 import axios from "axios";
 
 
 function Home(){
   const [posts,setPosts]=useState([]);
-
+const apiBase = import.meta.env.VITE_API_URL;
   useEffect(()=>{
     const fetchposts= async() => {
     try {

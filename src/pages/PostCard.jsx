@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../../components/Navbar";
-import apiBase from "../utils/apiBase";
 const PostCardDetails = ({ onDeleteSuccess }) => {
   const { id } = useParams();           // get id from URL
   const [post, setPost] = useState(null);
   const navigate = useNavigate();
+  const apiBase = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     // Fetch post details by id when component mounts or id changes
