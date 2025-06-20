@@ -1,0 +1,27 @@
+.dot{
+    color:#007AFF;
+}
+.nav-pills .nav-link {
+  color: black;
+}
+#create-post{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-img-top {
+    height: 13.75rem; /* approx. 220px assuming 1rem = 16px */
+    width: 100%;
+    object-fit: cover;
+}
+.centred-button{
+margin-top: 2rem;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+button{
+    gap: 8px ;
+}
