@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom"; // Optional, for SPA routing
 
 function PostGrid({ posts }) {
+  const apiBase = import.meta.env.VITE_API_URL;
   return (
     <section className="container mt-4">
       <div className="row g-4">
@@ -14,7 +15,7 @@ function PostGrid({ posts }) {
               <div className="card h-100 d-flex flex-column">
                 {post.image && (
                   <img
-                    src={`http://localhost:3000${post.image}`}
+                    src={`${apiBase}${post.image}`}
                     className="card-img-top"
                     alt="post"
                   />
