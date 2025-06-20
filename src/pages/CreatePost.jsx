@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
+import apiBase from "../utils/apiBase";
 function CreatePost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -34,7 +35,7 @@ const handleSubmit = async (e) => {
       formData.append("image", image);
     }
 
-    const res = await axios.post("http://localhost:3000/api/posts", formData, {
+    const res = await axios.post(`${apiBase}/api/posts`, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
 

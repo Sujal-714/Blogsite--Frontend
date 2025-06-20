@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import Navbar from "../../components/Navbar";
-import { Container } from "react-bootstrap";
+import apiBase from "../utils/apiBase";
 import PostGrid from "../../components/PostGrid";
 import axios from "axios";
 
@@ -11,7 +11,7 @@ function Home(){
   useEffect(()=>{
     const fetchposts= async() => {
     try {
-      const res = await axios.get("http://localhost:3000/api/posts");
+      const res = await axios.get(`${apiBase}/api/posts`);
       setPosts(res.data);
       console.log(res.data);
     } catch (error) {

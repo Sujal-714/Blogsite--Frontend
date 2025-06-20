@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../../components/Navbar";
+import apiBase from "../utils/apiBase";
 
 function EditPost() {
   const { id } = useParams();
@@ -17,7 +18,7 @@ function EditPost() {
   // Load post data
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/posts/${id}`)
+      .get(`${apiBase}/api/posts/${id}`)
       .then((res) => {
         setTitle(res.data.title);
         setDescription(res.data.description);
@@ -67,7 +68,7 @@ function EditPost() {
       }
       // If no new image, do not append 'image', backend keeps old one
 
-      await axios.put(`http://localhost:3000/api/posts/${id}`, formData, {
+      await axios.put(`${apiBase}/api/posts/${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -87,7 +88,7 @@ function EditPost() {
       ? imageUrl // preview URL from createObjectURL already complete
       : imageUrl.startsWith("http")
       ? imageUrl
-      : `http://localhost:3000${imageUrl}`
+      : `${apiBase}${imageUrl}`
     : null;
 
   return (

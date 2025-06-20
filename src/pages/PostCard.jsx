@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../../components/Navbar";
 import { Nav } from "react-bootstrap";
+import apiBase from "../utils/apiBase";
 const PostCardDetails = ({ onDeleteSuccess }) => {
   const { id } = useParams();           // get id from URL
   const [post, setPost] = useState(null);
@@ -11,7 +12,7 @@ const PostCardDetails = ({ onDeleteSuccess }) => {
   useEffect(() => {
     // Fetch post details by id when component mounts or id changes
     axios
-      .get(`http://localhost:3000/api/posts/${id}`)
+      .get(`${apiBase}/api/posts/${id}`)
       .then((res) => setPost(res.data))
       .catch((err) => {
         console.error("Failed to fetch post:", err);
@@ -29,7 +30,7 @@ const PostCardDetails = ({ onDeleteSuccess }) => {
   const handleDelete = async () => {
     if (window.confirm("Are you sure?") && post) {
       try {
-        await axios.delete(`http://localhost:3000/api/posts/${post.id}`);
+        await axios.delete(`${apiBase}/api/posts/${post.id}`);
         if (onDeleteSuccess) onDeleteSuccess(post.id);
         navigate("/"); // Redirect after delete
       } catch (error) {
@@ -49,7 +50,7 @@ const PostCardDetails = ({ onDeleteSuccess }) => {
       <div className="p-5 text-center bg-body-tertiary rounded-3">
         {post.image && (
           <img
-            src={`http://localhost:3000${post.image}`}
+            src={`${apiBase}${post.image}`}
             className="post-img img-fluid mb-3"
             alt="Post"
           />
