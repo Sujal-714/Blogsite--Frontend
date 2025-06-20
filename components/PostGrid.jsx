@@ -15,7 +15,7 @@ function PostGrid({ posts }) {
               <div className="card h-100 d-flex flex-column">
                 {post.image && (
                   <img
-                    src={`${apiBase}${post.image}`}
+                    src={post.image}
                     className="card-img-top"
                     alt="post"
                   />

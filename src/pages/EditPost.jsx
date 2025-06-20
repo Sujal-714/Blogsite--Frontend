@@ -89,7 +89,7 @@ function EditPost() {
       ? imageUrl // preview URL from createObjectURL already complete
       : imageUrl.startsWith("http")
       ? imageUrl
-      : `${apiBase}${imageUrl}`
+      : {imageUrl}
     : null;
 
   return (
