@@ -40,7 +40,7 @@ const handleSubmit = async (e) => {
       headers: { "Content-Type": "multipart/form-data" },
     });
 
-    alert("Post created!");
+
  
 
     // Reset

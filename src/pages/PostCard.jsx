@@ -49,7 +49,7 @@ const PostCardDetails = ({ onDeleteSuccess }) => {
       <div className="p-5 text-center bg-body-tertiary rounded-3">
         {post.image && (
           <img
-            src={`${apiBase}${post.image}`}
+            src={post.image}
             className="post-img img-fluid mb-3"
             alt="Post"
           />
