@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../../components/Navbar";
-import { Nav } from "react-bootstrap";
 import apiBase from "../utils/apiBase";
 const PostCardDetails = ({ onDeleteSuccess }) => {
   const { id } = useParams();           // get id from URL
